@@ -1,5 +1,6 @@
 ---
 title: Strawberry Smoothie
+category: Smoothies
 description: Great on a hot summer day.
 nutrition:
   - 300 calories
