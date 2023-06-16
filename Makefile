@@ -10,8 +10,7 @@ clean:
 
 # Builds the site by running build script, runs a Python webserver in the build directory
 test:
-	bash build.sh
-	rsync CNAME docs/CNAME
+	make build
 	python -m http.server -d docs/
 
 .PHONY: build clean test
