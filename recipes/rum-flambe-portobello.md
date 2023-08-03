@@ -1,6 +1,6 @@
 ---
 title: Rum Flambéed Mushrooms
-category: Veggie Dishes
+category: Veggie Hits
 description: Savory Portobello mushroom pieces with a sweet rum undertone and *just a little* char
 image: rum-flambe-portobello.jpg
 size: 2 servings
