@@ -8,13 +8,13 @@ This tool takes a **collection of Markdown-formatted recipes** and turns it into
 
 📓 Think of it as a **cookbook for nerds**.
 
-**Fork Notes:** This fork is primarily intended for my personal use, and as a result has some changes and stuff trimmed off from the original. This includes rsync deployment and GitHub Actions code, as well as parts of the README. This fork also strips out all webfonts, and changes other included assets to be lighter and come closer to the principles outlined [here](https://referi.ineedmore.coffee). You're likely better served by the original project in [this repository](https://github.com/doersino/nyum). For more information on this fork, check out [the blog post about it](https://ineedmore.coffee/future-link).
+**Fork Notes:** This fork is primarily intended for my personal use, and as a result has some changes and stuff trimmed off from the original. This includes rsync deployment and GitHub Actions code, as well as parts of the README. This fork also strips out all webfonts, and changes other included assets to be lighter and come closer to the principles outlined [here](https://referi.ineedmore.coffee). You're likely better served by the original project in [this repository](https://github.com/doersino/nyum). For more information on this fork, check out [the blog post about it](https://ineedmore.coffee/trimming-nyum).
 
 ## Usage
 
 ### Initial Setup
 
-Initial setup is pretty simple. The only dependency is [Pandoc](https://pandoc.org) version >2.8 (as well as [Python 3](https://www.python.org/) if you want to use `make test`). From there, the only things that need to be done are to fork/clone this repository, potentially clear out the `recipes/` and `docs/` directories to clear out the demo data, and go through `config.yaml` to configure the necessary settings.
+Initial setup is pretty simple, thanks to the power of Nix! To start, [install Nix](https://nixos.org/download.html). From there, the only things that need to be done are to fork/clone this repository, potentially clear out the `recipes/` and `docs/` directories to clear out the demo data, and go through `config.yaml` to configure the necessary settings.
 
 To get it deployed on GitHub Pages, the best approach is to simply configure GitHub Pages to deploy from the `docs/` folder, which the script deploys to expressly because GitHub artificially limits Pages to only be able to deploy from the root of a repository or the `docs/` folder.
 
@@ -24,7 +24,8 @@ A general sample workflow for adding a new recipe would go as follows:
 
 1. `git pull` to ensure your local copy is up to date and there's no merge conflicts.
 2. Write your recipe in `recipes/` based on the formatting instructions below. Add any pictures to the same folder, with sensible filenames of course.
-3. Build the site with `make build`, or test it with `make test` (which also builds the site, but runs an HTTP server to easily see what it looks like).
+3. Enter a Nix shell using `nix-shell --pure`, which will pull in all of the dependencies.
+4. Build the site with `make build`, or test it with `make test` (which also builds the site, but runs an HTTP server to easily see what it looks like).
 5. Commit and push the site, then wait a minute or two for GitHub Pages to reflect the changes!
 
 ### Formatting
